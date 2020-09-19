@@ -1,0 +1,49 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Авторы - панель управления{% endblock %}
+
+{% block body %}
+
+	<h2>Авторы</h2>
+
+	{% if message|length > 1 %}
+		<div style="float:left;width:100%;background-color:#c9ffd0;margin-bottom:10px;">
+			{{message|raw}}
+		</div>
+	{% endif %}
+
+	<div style="float:left;width:100%">
+		<a href="{{path('admin_addauthor')}}">добавить автора</a>
+	</div>
+
+	<div style="float:left;">
+		<div style="width:100%;">
+			<div style="min-width:200px;float:left;background-color:#b6daff;">
+				Автор
+			</div>
+			<div style="min-width:200px;float:left;background-color:#b6daff;">
+				Кол-во книг
+			</div>
+		</div>
+
+		{% for author in authors %}
+
+		<div style="style="width:100%;">
+			<div style="min-width:200px;float:left;">
+				{{author.name}}
+			</div>
+			<div style="min-width:200px;float:left;">
+				 {{author.books|length}}
+			</div>
+			<div style="width:50px;float:right;">
+				<a href="{{path('admin_addauthor')}}?id={{author.id}}" title="редактировать автора"><img src="/img/red.jpg"/></a>
+				<a href="?del={{author.id}}"><img src="/img/del.jpg" title="удалить автора"/></a>
+			</div>
+		</div>
+
+		{% endfor %}
+	</div>
+
+	
+
+{% endblock %}

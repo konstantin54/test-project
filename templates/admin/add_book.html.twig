@@ -1,0 +1,29 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% if red != 0 %}Редактирование{% else %}Добавление{% endif %} книги - панель управления{% endblock %}
+
+{% block body %}
+
+	<h2>{% if red != 0 %}Редактирование{% else %}Добавление{% endif %} книги</h2>
+
+	<form name="form" method="post">
+		<div id="form">
+			<div>
+				<label for="form_name">Название</label>
+				{{ form_widget(form.name) }} 
+				<br/>
+				<label for="form_name">Автор</label>
+				{{ form_widget(form.author) }} 
+
+
+				{{ form_end(form) }}
+
+			</div>
+			<button href="#" name="send" style="min-width:100px;margin-top:10px;">{% if red != 0 %}Сохранить{% else %}Добавить{% endif %}</button>	
+	</form>
+
+	
+	
+	
+
+{% endblock %}

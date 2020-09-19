@@ -1,0 +1,56 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Книги - панель управления{% endblock %}
+
+{% block body %}
+
+	<h2>Книги{% if page > 1 %} (страница {{page}}){% endif %}</h2>
+
+	{% if message|length > 1 %}
+		<div style="float:left;width:100%;background-color:#c9ffd0;margin-bottom:10px;">
+			{{message|raw}}
+		</div>
+	{% endif %}
+
+	<div style="float:left;width:100%">
+		<a href="{{path('admin_addbook')}}">добавить книгу</a>
+	</div>
+
+	<div style="float:left;">
+		<div style="width:100%;">
+			<div style="min-width:250px;float:left;background-color:#b6daff;">
+				Название
+			</div>
+			<div style="min-width:250px;float:left;background-color:#b6daff;">
+				Автор
+			</div>
+			
+		</div>
+		{% for book in books %}
+
+			<div style="style="width:100%;">
+				<div style="width:250px;float:left;border:1px solid #888888;">
+					{{book.name}}
+				</div>
+				<div style="width:250px;float:left;border:1px solid #888888;">
+					{{book.author.name}}
+				</div>
+				<div style="width:50px;float:right;">
+					<a href="{{path('admin_addbook')}}?id={{book.id}}" title="редактировать книгу"><img src="/img/red.jpg"/></a>
+					<a href="?del={{book.id}}"><img src="/img/del.jpg" title="удалить книгу"/></a>
+				</div>
+				<div></div>
+			</div>
+
+		{% endfor %}
+	</div>
+
+	<div style="padding-top:10px;float:left;">
+	{% if pagesNum > 1 %}
+		{% for i in 1..pagesNum %}
+			<a href="?page={{i}}" class="admin-pagination" {% if page == i %}style="background-color:#92b9ff;"{% endif %}>{{i}}</a>
+		{% endfor %}
+	{% endif %}
+	</div>
+
+{% endblock %}

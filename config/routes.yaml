@@ -1,3 +1,40 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+main:
+    path: /
+    controller: App\Controller\DefaultController::index 
+generate:
+    path: /generate
+    controller: App\Controller\DefaultController::generate
+admin_books:
+    path: /admin/books
+    controller: App\Controller\AdminController::books
+admin_addbook:
+    path: /admin/add/book
+    controller: App\Controller\AdminController::addbook      
+admin_authors:
+    path: /admin/authors
+    controller: App\Controller\AdminController::authors     
+admin_addauthor:
+    path: /admin/add/author
+    controller: App\Controller\AdminController::addauthor     
+admin_api:
+    path: /admin/api
+    controller: App\Controller\AdminController::api             
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::index     
+
+api_books:
+    path: /api/v1/books/list
+    controller: App\Controller\ApiController::list
+api_book:
+    path: /api/v1/books/by-{id}
+    controller: App\Controller\ApiController::book
+update_book:
+    path: /api/v1/books/update
+    controller: App\Controller\ApiController::update
+api_delete:
+    path: /api/v1/books/{id}
+    controller: App\Controller\ApiController::delete

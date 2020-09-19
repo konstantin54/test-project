@@ -1,0 +1,80 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}API - панель управления{% endblock %}
+
+{% block body %}
+
+	<h2>API</h2>
+
+	
+
+	<div style="float:left;">
+		<div style="width:100%;">
+			<div style="min-width:100px;float:left;background-color:#b6daff;">
+				Метод
+			</div>
+			<div style="min-width:200px;float:left;background-color:#b6daff;">
+				URL
+			</div>
+			<div style="min-width:400px;float:left;background-color:#b6daff;">
+				Описание
+			</div>
+		</div>
+
+		
+
+		<div style="style="width:100%;">
+			<div style="min-width:100px;float:left;">
+				GET
+			</div>
+			<div style="min-width:200px;float:left;">
+				<a href="/api/v1/books/list" target="_blank">/api/v1/books/list</a>
+			</div>
+			<div style="width:400px;float:right;">
+				получение списка книг с именем автора
+			</div>
+		</div>
+
+		<div style="style="width:100%;">
+			<div style="min-width:100px;float:left;">
+				GET
+			</div>
+			<div style="min-width:200px;float:left;">
+				<a href="/api/v1/books/by-id" target="_blank">/api/v1/books/by-id</a>
+			</div>
+			<div style="width:400px;float:right;">
+				получение данных книги по id
+			</div>
+		</div>
+
+		<div style="style="width:100%;">
+			<div style="min-width:100px;float:left;">
+				POST
+			</div>
+			<div style="min-width:200px;float:left;">
+				/api/v1/books/update
+			</div>
+			<div style="width:400px;float:right;">
+				обновление данных книги
+			</div>
+		</div>
+
+		<div style="style="width:100%;">
+			<div style="min-width:100px;float:left;">
+				DELETE
+			</div>
+			<div style="min-width:200px;float:left;">
+				/api/v1/books/id
+			</div>
+			<div style="width:400px;float:right;">
+				удаление записи книги из бд
+			</div>
+		</div>
+
+
+		
+	</div>
+
+	
+
+{% endblock %}
